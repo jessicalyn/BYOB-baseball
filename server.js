@@ -61,3 +61,23 @@ app.get('/api/v1/teams/:name', (request, response) => {
   })
 })
 
+app.post('/api/v1/teams', (request, response) => {
+  const team = request.body
+
+  for (let requiredParameter of ['name', 'stadium_name', 'website', 'division_name']) {
+    if(!team[requiredParameter]) {
+      return response
+        .status(422)
+        .send({
+          error: `Expected format: { name: <String>, stadium_name: <String>, website: <String>, division_name: <String> }. You're missing a "${requiredParameter}" property.`})
+    }
+  }
+
+  database('teams').insert(team, 'id')
+    .then(team => {
+      response.status(201).json({ id: team[0] })
+    })
+    .catch(error => {
+      response.status(500).json({ error })
+    })
+})
