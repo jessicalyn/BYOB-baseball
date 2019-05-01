@@ -48,34 +48,17 @@ app.get('/api/v1/teams/:id', (request, response) => {
   })
 })
 
-app.get('/api/v1/teams/:name', (request, response) => {
-  console.log(request.params.name)
-  database('teams').where('name', request.params.name).select()
-  .then(teams => {
-    if (teams.length) {
-      response.status(200).json(teams)
-    } else {
-      response.status(404).json({
-        error: `Could not find team with name ${request.params.name}`
-      })
-    }
-  })
-  .catch (error => {
-    response.status(500).json({ error })
-  })
-})
-
-//add get for divisions by name
+//add get v1/divisions/:id/teams
 
 app.post('/api/v1/teams', (request, response) => {
   const team = request.body
 
-  for (let requiredParameter of ['name', 'stadium_name', 'website', 'division_name']) {
+  for (let requiredParameter of ['name', 'stadium_name', 'website', 'division_id']) {
     if(!team[requiredParameter]) {
       return response
         .status(422)
         .send({
-          error: `Expected format: { name: <String>, stadium_name: <String>, website: <String>, division_name: <String> }. You're missing a "${requiredParameter}" property.`})
+          error: `Expected format: { name: <String>, stadium_name: <String>, website: <String>, division_id: <String> }. You're missing a "${requiredParameter}" property.`})
     }
   }
 
@@ -109,4 +92,21 @@ app.post('/api/v1/divisions', (request, response) => {
     })
 
     //how do i filter out/error for body parameters that don't have a column? ie. website for division
+})
+
+app.delete('/api/v1/teams/:id', (request, response) => {
+  database('teams').where('id', request.params.id).del()
+    .then(res => {
+      console.log(res, request.params)
+      if (res > 0) {
+        response.status(200).json(`Deleted Team ${request.params.id}`)
+      } else {
+        response.status(404).json({
+          error: `Could not find team with id ${request.params.id}`
+        })
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error: "OOPS" })
+    })
 })
