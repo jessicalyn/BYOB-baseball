@@ -28,3 +28,36 @@ app.get('/api/v1/teams', (request, response) => {
       response.status(500).json({ error })
     })
 })
+
+app.get('/api/v1/teams/:id', (request, response) => {
+  database('teams').where('id', request.params.id).select()
+  .then(teams => {
+    if (teams.length) {
+      response.status(200).json(teams)
+    } else {
+      response.status(404).json({
+        error: `Could not find team with id ${request.params.id}`
+      })
+    }
+  })
+  .catch(error => {
+    response.status(500).json({ error })
+  })
+})
+
+app.get('/api/v1/teams/:name', (request, response) => {
+  database('teams').where('name', request.params.name).select()
+  .then(teams => {
+    if (teams.length) {
+      response.status(200).json(teams)
+    } else {
+      response.status(404).json({
+        error: `Could not find team with name ${request.params.name}`
+      })
+    }
+  })
+  .catch (error => {
+    response.status(500).json({ error })
+  })
+})
+
