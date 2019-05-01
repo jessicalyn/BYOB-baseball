@@ -5,6 +5,9 @@ const database = require('knex')(configuration);
 
 const app = express()
 const port = 3000
+app.get('/', (req, res) => {
+  console.log(req.query)
+})
 app.use(express.json())
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
@@ -46,6 +49,7 @@ app.get('/api/v1/teams/:id', (request, response) => {
 })
 
 app.get('/api/v1/teams/:name', (request, response) => {
+  console.log(request.params.name)
   database('teams').where('name', request.params.name).select()
   .then(teams => {
     if (teams.length) {
@@ -60,6 +64,8 @@ app.get('/api/v1/teams/:name', (request, response) => {
     response.status(500).json({ error })
   })
 })
+
+//add get for divisions by name
 
 app.post('/api/v1/teams', (request, response) => {
   const team = request.body
@@ -80,4 +86,27 @@ app.post('/api/v1/teams', (request, response) => {
     .catch(error => {
       response.status(500).json({ error })
     })
+})
+
+app.post('/api/v1/divisions', (request, response) => {
+  const division = request.body
+
+  for (let requiredParameter of ['name', 'league']) {
+    if(!division[requiredParameter]) {
+      return response
+        .status(422)
+        .send({
+          error: `Expected format: { name: <String>, league: <String> }. You're missing a "${requiredParameter}" property.`})
+    }
+  }
+
+  database('divisions').insert(division, 'id')
+    .then(division => {
+      response.status(201).json({ id: division[0] })
+    })
+    .catch(error => {
+      response.status(500).json({ error })
+    })
+
+    //how do i filter out/error for body parameters that don't have a column? ie. website for division
 })
