@@ -22,7 +22,7 @@ app.get('/api/v1/divisions', (request, response) => {
 app.get('/api/v1/teams', (request, response) => {
   database('teams').select()
     .then((teams) => {
-      response.status(200).json(divisions)
+      response.status(200).json(teams)
     })
     .catch((error) => {
       response.status(500).json({ error })
