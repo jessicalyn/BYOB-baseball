@@ -11,13 +11,7 @@ Welcome to the BYOB MLB Baseball edition API! This documentation should familiar
 ### Root URL
 The Root URL for BYOB Baseball is localhost:3000 The documentation below requires prepending the Root URL to the endpoints in order to fulfill the requests.
 
-### Authentication
-BYOB Baseball is an open API and does not require authentication to query and get data.
-
-### JSON Encoding
-JSON is the data format provided by BYOB Baseball.
-
-### Root Endpoint
+### GET ```localhost:3000```
 The Root URL provides all information on all available endpoints within the BYOB Baseball API.
 
 #### Example Request:
