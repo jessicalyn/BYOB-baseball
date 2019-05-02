@@ -10,8 +10,10 @@ This app is deployed to Heroku:
 
 ## API Documentation:
 
-### Introduction:
-The BYOB MLB Baseball edition
+Welcome to the BYOB MLB Baseball edition API! This documentation should familiarize you with the resources available and how to consume them with HTTP requests. 
+
+### Root URL
+The Root URL for BYOB Baseball is localhost:3000 
 
 ## Installation:
 
