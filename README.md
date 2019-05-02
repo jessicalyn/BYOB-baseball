@@ -1,12 +1,8 @@
 # Build Your Own Backend - MLB Baseball edition
 
-## Overview:
-
-Build Your Own Backed (BYOB) is a solo project at the Turing School of Software and Design. As Front-End Developers this project is designed to give us experience building databases using Express, Knex, and PostgreSQL, and building a RESTful API.
+Build Your Own Backed (BYOB) is a solo project at the Turing School of Software and Design. As Front-End Developers this project is designed to give us experience building databases using Express, Knex, and PostgreSQL, and building a RESTful API. [More information about original assignment can be found here](http://frontend.turing.io/projects/build-your-own-backend.html)
 
 This app is deployed to Heroku:
-
-[More information about original assignment can be found here](http://frontend.turing.io/projects/build-your-own-backend.html)
 
 ## API Documentation:
 
@@ -40,8 +36,16 @@ The Root URL provides all information on all available endpoints within the BYOB
 - ```divisions``` string -- The URL root for the Divisions endpoint
 - ```teams``` string -- The URL root for the Teams endpoint
 
-### Divisions Endpoint
-The Divisions endpoint provides information about all the Divisions in Major League Baseball or a specific division.
+### Divisions Endpoints
+The Divisions endpoints provide information about all the Divisions in Major League Baseball or a specific division.
+
+#### POST ```/api/v1/divisions```
+This endpoint allows you to create a new Division.
+
+#### Endpoints:
+- ```/api/v1/divisions``` -- GET data for all Divisions
+- ```/api/v1/divisions/:id``` -- GET data for a specific Division 
+- ```/api/v1/divisions``` -- POST add a new Division
 
 #### Example Request:
 ```localhost:3000/api/v1/divisions/1```
