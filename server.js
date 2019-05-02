@@ -5,9 +5,7 @@ const database = require('knex')(configuration);
 
 const app = express()
 const port = 3000
-
 app.use(express.json())
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 
@@ -56,8 +54,6 @@ app.post('/api/v1/divisions', (request, response) => {
     .catch(error => {
       response.status(500).json({ error })
     })
-
-    //how do i filter out/error for body parameters that don't have a column? ie. website for division
 })
 
 //Teams endpoints
@@ -86,6 +82,22 @@ app.get('/api/v1/teams/:id', (request, response) => {
   .catch(error => {
     response.status(500).json({ error })
   })
+})
+
+app.get('/api/v1/divisions/:id/teams', (request, response) => {
+  database('teams').where('id', request.params.id).select()
+    .then((teams) => {
+      if (teams.length) {
+        response.status(200).json(teams)
+      } else {
+        response.status(404).json({
+          error: `Could not find division with id ${request.params.id}`
+        })
+      }
+    })
+    .catch((error) => {
+      response.status(500).json({ error })
+    })
 })
 
 app.post('/api/v1/teams', (request, response) => {
