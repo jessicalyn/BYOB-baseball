@@ -8,6 +8,11 @@ This app is deployed to Heroku:
 
 [More information about original assignment can be found here](http://frontend.turing.io/projects/build-your-own-backend.html)
 
+## API Documentation:
+
+### Introduction:
+The BYOB MLB Baseball edition
+
 ## Installation:
 
 These instructions will get a copy of the project up and running on your local machine for usage and testing purposes.
@@ -19,14 +24,11 @@ cd into directory and run npm install: ``` $ npm install ```
 
 launch in your browser: ``` $ npm start ```
 
-## API Documentation:
-
-
 ## Future Development and Extensions Notes:
 
 
 ### Technologies Used
-BYOB - Baseball Edition was built using: 
+BYOB - MLB Baseball Edition was built using: 
 - Express
 - Knex
 - PostgreSQL
