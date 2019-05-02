@@ -11,13 +11,13 @@ Welcome to the BYOB MLB Baseball edition API! This documentation should familiar
 ### Root URL
 The Root URL for BYOB Baseball is localhost:3000 The documentation below requires prepending the Root URL to the endpoints in order to fulfill the requests.
 
-### GET ```localhost:3000```
-The Root URL provides all information on all available endpoints within the BYOB Baseball API.
+#### GET ```localhost:3000```
+This endpoint provides all information on all available endpoints within the BYOB Baseball API.
 
-#### Example Request:
+##### Example Request:
 ```localhost:3000```
 
-#### Example Response:
+##### Example Response:
 ```
    HTTP/1.0 200 OK
    Content-Type: application/json
@@ -26,25 +26,34 @@ The Root URL provides all information on all available endpoints within the BYOB
       "teams": "localhost:3000/api/v1/teams"
    } 
    ```
-#### Attributes:
-- ```divisions``` string -- The URL root for the Divisions endpoint
-- ```teams``` string -- The URL root for the Teams endpoint
+##### Attributes:
+- ```divisions``` *string* -- The URL root for the Divisions endpoint
+- ```teams``` *string* -- The URL root for the Teams endpoint
 
 ### Divisions Endpoints
-The Divisions endpoints provide information about all the Divisions in Major League Baseball or a specific division.
-
-#### POST ```/api/v1/divisions```
-This endpoint allows you to create a new Division.
+The Divisions endpoints provide information about all the Divisions in Major League Baseball or a specific division. You can also create a new Division or edit an existing a Division.
 
 #### Endpoints:
 - ```/api/v1/divisions``` -- GET data for all Divisions
 - ```/api/v1/divisions/:id``` -- GET data for a specific Division 
 - ```/api/v1/divisions``` -- POST add a new Division
 
-#### Example Request:
+#### GET ```/api/v1/divisions```
+This endpoint returns all Divisions data.
+
+##### Example Request:
+
+##### Example Response:
+
+##### Attributes:
+
+#### GET ```/api/v1/divisions/:id```
+This endpoint returns all data for a specific Division. Required parameters: division id.
+
+##### Example Request:
 ```localhost:3000/api/v1/divisions/1```
 
-#### Example Response:
+##### Example Response:
 ```
 [
     {
@@ -56,6 +65,16 @@ This endpoint allows you to create a new Division.
     }
 ]
 ```
+
+##### Attributes:
+
+#### POST ```/api/v1/divisions```
+This endpoint allows you to create a new Division.
+
+#### Example Request:
+
+
+#### Example Response:
 
 ## Installation:
 
