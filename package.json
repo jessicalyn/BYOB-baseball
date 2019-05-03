@@ -22,6 +22,8 @@
   "bugs": {
     "url": "https://github.com/jessicalyn/BYOB-baseball/issues"
   },
-  "engines" : { "node" : "~v11.3.0" },
+  "engines": {
+    "node": "~v11.3.0"
+  },
   "homepage": "https://github.com/jessicalyn/BYOB-baseball#readme"
 }
