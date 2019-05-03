@@ -4,7 +4,6 @@ const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
 
 const app = express()
-// const port = 3000
 app.use(express.json())
 app.set('port', process.env.PORT || 3000)
 app.listen(app.get('port'), () => console.log(`Example app listening on port ${app.get('port')}`))
@@ -27,7 +26,7 @@ app.get('/api/v1/divisions/:id', (request, response) => {
       if (division.length) {
         response.status(200).json(division)
       } else {
-        response.status(404).json(`Could not find division with id ${request.params.id}`)
+        response.status(422).json(`Could not find division with id ${request.params.id}`)
       }
     })
     .catch(error => {
@@ -74,7 +73,7 @@ app.get('/api/v1/teams/:id', (request, response) => {
     if (teams.length) {
       response.status(200).json(teams)
     } else {
-      response.status(404).json({
+      response.status(422).json({
         error: `Could not find team with id ${request.params.id}`
       })
     }
@@ -90,7 +89,7 @@ app.get('/api/v1/divisions/:id/teams', (request, response) => {
       if (teams.length) {
         response.status(200).json(teams)
       } else {
-        response.status(404).json({
+        response.status(422).json({
           error: `Could not find division with id ${request.params.id}`
         })
       }
@@ -127,7 +126,7 @@ app.delete('/api/v1/teams/:id', (request, response) => {
       if (res > 0) {
         response.status(200).json(`Deleted Team ${request.params.id}`)
       } else {
-        response.status(404).json({
+        response.status(422).json({
           error: `Could not find team with id ${request.params.id}`
         })
       }
