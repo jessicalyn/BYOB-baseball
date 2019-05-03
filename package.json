@@ -1,0 +1,27 @@
+{
+  "name": "byob",
+  "version": "1.0.0",
+  "description": "Build Your Own Backed (BYOB) is a solo project at the Turing School of Software and Design. As Front-End Developers this project is designed to give us experience building databases using Express, Knex, and PostgreSQL, and building a RESTful API. [More information about original assignment can be found here](http://frontend.turing.io/projects/build-your-own-backend.html)",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "knex": "^0.16.5",
+    "pg": "^7.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessicalyn/BYOB-baseball.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jessicalyn/BYOB-baseball/issues"
+  },
+  "engines" : { "node" : "~v11.3.0" },
+  "homepage": "https://github.com/jessicalyn/BYOB-baseball#readme"
+}
