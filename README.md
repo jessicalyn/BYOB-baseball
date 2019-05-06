@@ -2,7 +2,7 @@
 
 Build Your Own Backed (BYOB) is a solo project at the Turing School of Software and Design. As Front-End Developers this project is designed to give us experience building databases using Express, Knex, and PostgreSQL, and building a RESTful API. [More information about original assignment can be found here](http://frontend.turing.io/projects/build-your-own-backend.html)
 
-This app is deployed to Heroku:
+This app is deployed to Heroku: https://byob-baseball.herokuapp.com/
 
 ## API Documentation:
 
