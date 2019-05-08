@@ -4,13 +4,20 @@
   "description": "Build Your Own Backed (BYOB) is a solo project at the Turing School of Software and Design. As Front-End Developers this project is designed to give us experience building databases using Express, Knex, and PostgreSQL, and building a RESTful API. [More information about original assignment can be found here](http://frontend.turing.io/projects/build-your-own-backend.html)",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.4",
-    "knex": "^0.16.5",
-    "pg": "^7.10.0"
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jest": "^24.5.0",
+    "knex": "^0.16.3",
+    "pg": "^7.8.2",
+    "supertest": "^4.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-jest": "^24.5.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll",
     "start": "node server.js"
   },
   "repository": {
